@@ -37,7 +37,7 @@ const Table = () => {
             <td className="border border-slate-300 p-3">{ moment(employee.date_hired).format('LL') }</td>
             <td className="border border-slate-300 p-3">{ moment(employee.created_at).format('LL') }</td>
             <td className="text-center border border-slate-300 p-3 space-x-1">
-              <Link href={`/${ employee.id }`}>
+              <Link href={`/view/${ employee.id }`}>
                 <a className="w-full max-w-[5rem] px-3 py-1 rounded-md text-xs bg-green-400 text-white outline-none transition ease-in-out duration-200 hover:bg-opacity-50">
                   View
                 </a>

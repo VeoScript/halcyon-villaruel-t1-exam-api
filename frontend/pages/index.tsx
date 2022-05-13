@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Employees</title>
       </Head>
-      <div className="flex flex-col items-center justify-center w-full h-screen space-y-5">
+      <div className="flex flex-col items-center justify-start w-full h-screen space-y-5 py-10">
         <div className="inline-flex items-center justify-between w-full max-w-6xl">
           <h1 className="font-bold text-xl">Employee Management System</h1>
           <Link href="/new">
@@ -19,7 +19,9 @@ const Home: NextPage = () => {
             </a>
           </Link>
         </div>
-        <Table />
+        <div className="flex justify-center w-full pb-10">
+          <Table />
+        </div>
       </div>
     </React.Fragment>
   )

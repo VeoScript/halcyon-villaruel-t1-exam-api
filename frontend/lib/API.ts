@@ -1,20 +1,12 @@
-import { useQuery, useMutation } from 'react-query'
-import { addEmployee } from './API'
+// ------------- API-ROUTE ------------- //
 
-export function useGetEmployees() {
-  return useQuery('employees', 
-    async () => {
-      const employees = fetch('/api/read/employees')
-      return (await employees).json()
+export const addEmployee = async (_args: any) => {
+  const res = await fetch('/api/create/employee', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
     },
-    {
-      refetchInterval: 1000
-    }
-  )
-}
-
-export const useAddEmployee = () => {
-  return useMutation((_args: any) => addEmployee({
+    body: JSON.stringify({
       firstname: _args.firstname,
       lastname: _args.lastname,
       birthdate: _args.birthdate,
@@ -31,5 +23,10 @@ export const useAddEmployee = () => {
       province: _args.province,
       nationality: _args.nationality
     })
-  )
+  })
+
+  if (!res.ok) {
+    const json = await res.json()
+    throw String(json.message)
+  }
 }

@@ -30,3 +30,50 @@ export const addEmployee = async (_args: any) => {
     throw String(json.message)
   }
 }
+
+export const editEmployee = async (_args: any) => {
+  const res = await fetch(`/api/update/employee`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: _args.id,
+      firstname: _args.firstname,
+      lastname: _args.lastname,
+      birthdate: _args.birthdate,
+      gender: _args.gender,
+      marital_status: _args.marital_status,
+      department: _args.department,
+      position: _args.position,
+      date_hired: _args.date_hired,
+      employment_status: _args.employment_status,
+      contact_number: _args.contact_number,
+      email: _args.email,
+      address: _args.address,
+      city: _args.city,
+      province: _args.province,
+      nationality: _args.nationality
+    })
+  })
+  if (!res.ok) {
+    const json = await res.json()
+    throw String(json.message)
+  }
+}
+
+export const deleteEmployee = async (_args: any) => {
+  const res = await fetch(`/api/delete/employee`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: _args.id
+    })
+  })
+  if (!res.ok) {
+    const json = await res.json()
+    throw String(json.message)
+  }
+}

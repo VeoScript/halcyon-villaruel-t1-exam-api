@@ -1,16 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
 import moment from 'moment'
-import { useGetEmployees } from '../lib/ReactQuery'
+import { useGetEmployees, useDeleteEmployee } from '../lib/ReactQuery'
 
 const Table = () => {
+
+  const deleteEmployee = useDeleteEmployee()
 
   const { data: employees, isLoading, isError } = useGetEmployees()
 
   if (isLoading) return <div>Loading</div>
   if(isError) return <div>Ooops! There is an error.</div>
-
-  console.log(employees)
 
   return (
     <table className="border-collapse border border-slate-400 w-full max-w-6xl text-sm">
@@ -42,7 +42,7 @@ const Table = () => {
                   View
                 </a>
               </Link>
-              <Link href="/edit">
+              <Link href={`/edit/${ employee.id }`}>
                 <a className="w-full max-w-[5rem] px-3 py-1 rounded-md text-xs bg-orange-400 text-white outline-none transition ease-in-out duration-200 hover:bg-opacity-50">
                   Edit
                 </a>
@@ -50,6 +50,16 @@ const Table = () => {
               <button
                 type="button"
                 className="w-[4rem] px-3 py-1 rounded-md text-xs bg-red-600 text-white outline-none transition ease-in-out duration-200 hover:bg-opacity-50"
+                onClick={() => {
+                  deleteEmployee.mutate({
+                    id: employee.id
+                  },
+                  {
+                    onSuccess() {
+                      console.log('Deleted Successfully')
+                    }
+                  })
+                }}
               >
                 Delete
               </button>

@@ -179,7 +179,7 @@ const NewForm: React.FC = () => {
             type="email"
             id="email"
             className="flex w-full p-3 outline-none border border-zinc-400 focus:border-blue-500"
-            {...register('email', { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
+            {...register('email', { pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
           />
         </div>
         <div className="block w-full">
@@ -188,7 +188,7 @@ const NewForm: React.FC = () => {
             type="text"
             id="address"
             className="flex w-full p-3 outline-none border border-zinc-400 focus:border-blue-500"
-            {...register('address', { required: true })}
+            {...register('address')}
           />
         </div>
         <div className="block w-full">
@@ -197,7 +197,7 @@ const NewForm: React.FC = () => {
             type="text"
             id="city"
             className="flex w-full p-3 outline-none border border-zinc-400 focus:border-blue-500"
-            {...register('city', { required: true })}
+            {...register('city')}
           />
         </div>
         <div className="block w-full">
@@ -206,7 +206,7 @@ const NewForm: React.FC = () => {
             type="text"
             id="province"
             className="flex w-full p-3 outline-none border border-zinc-400 focus:border-blue-500"
-            {...register('province', { required: true })}
+            {...register('province')}
           />
         </div>
         <div className="block w-full">
@@ -215,7 +215,7 @@ const NewForm: React.FC = () => {
             type="text"
             id="nationality"
             className="flex w-full p-3 outline-none border border-zinc-400 focus:border-blue-500"
-            {...register('nationality', { required: true })}
+            {...register('nationality')}
           />
         </div>
         <button

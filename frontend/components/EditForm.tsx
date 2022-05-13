@@ -244,7 +244,7 @@ const EditForm: React.FC<IProps> = ({ employee }) => {
         </div>
         <button
           type="submit"
-          className="inline-flex items-center justify-center w-full p-3 outline-none text-white bg-blue-600 hover:bg-opacity-50 transition ease-in-out duration-200"
+          className="inline-flex items-center justify-center w-full p-3 outline-none text-white bg-orange-400 hover:bg-opacity-50 transition ease-in-out duration-200"
         >
           Save Changes
         </button>

@@ -25,6 +25,7 @@ Route.get('/', async () => {
 })
 
 Route.get('/employees', 'EmployeesController.show')
+Route.get('/employee/:id', 'EmployeesController.showOne')
 Route.post('/add-employee', 'EmployeesController.store')
-Route.put('/update-employee/:id', 'EmployeesController.modify')
+Route.put('/update-employee/:id', 'EmployeesController.update')
 Route.delete('/delete-employee/:id', 'EmployeesController.destroy')
